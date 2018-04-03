@@ -1,0 +1,9 @@
+.Menu{
+	background-color: silver;
+	padding-top: 10px;
+}
+.Row{
+	display: inline-block;
+	width:85%;
+	text-align: center;
+}
