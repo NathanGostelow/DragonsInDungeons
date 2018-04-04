@@ -8,3 +8,10 @@
 	/*float: left;*/
 	display: inline-block;
 }
+.Card:hover{
+	box-shadow: 1px 2px 5px #555;
+}
+
+.Card-Title{
+	margin-top: 25%;
+}
