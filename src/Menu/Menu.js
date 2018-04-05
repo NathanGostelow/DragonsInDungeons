@@ -8,6 +8,7 @@ class Menu extends Component {
   		<Card
   			value={this.props.value[i]}
   			img={this.props.icon[i]}
+  			link={this.props.value[i]}
   		/>
   	);
   }
