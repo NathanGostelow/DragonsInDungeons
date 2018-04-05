@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Subclasses.css';
+// import './Subclasses.css';
 // import Card from './Card/Card.js';
 
 class Subclasses extends Component {
