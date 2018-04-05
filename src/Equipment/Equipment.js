@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './Monsters.css';
+import './Equipment.css';
 // import Card from './Card/Card.js';
 
-class Monsters extends Component {
+class Equipment extends Component {
   render() {
     return (
       <div className="Menu">
         <div className="Row">
-        	<h1> Hello monsters </h1>
+        	<h1> Hello Equipment </h1>
         </div>
 
         
@@ -16,4 +16,4 @@ class Monsters extends Component {
   }
 }
 
-export default Monsters;
+export default Equipment;

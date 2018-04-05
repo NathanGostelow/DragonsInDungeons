@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './Monsters.css';
+import './Subclasses.css';
 // import Card from './Card/Card.js';
 
-class Monsters extends Component {
+class Subclasses extends Component {
   render() {
     return (
       <div className="Menu">
         <div className="Row">
-        	<h1> Hello monsters </h1>
+        	<h1> Hello Subclasses </h1>
         </div>
 
         
@@ -16,4 +16,4 @@ class Monsters extends Component {
   }
 }
 
-export default Monsters;
+export default Subclasses;
