@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Monsters.css';
+// import './Monsters.css';
 // import Card from './Card/Card.js';
 
 class Monsters extends Component {
