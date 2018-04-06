@@ -5,12 +5,8 @@ import React, { Component } from 'react';
 class Monsters extends Component {
   render() {
     return (
-      <div className="Menu">
-        <div className="Row">
-        	<h1> Hello monsters </h1>
-        </div>
-
-        
+      <div className="container">
+        <h1> Hello Monsters </h1>        
       </div>
     );
   }
