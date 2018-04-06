@@ -8,8 +8,7 @@ function Card(props) {
     return (
     <Link to={`/${props.link}`}>
       <div className='Card'>
-        <h3 className='Card-Title'> {props.value} </h3>
-        <div className={`fa ${props.img} fa-5x`}></div>
+        <h3 className='Card-Title'> <i className={`fa ${props.img} fa-2x`} > </i>  { props.value} </h3>
       </div>
       </Link>
     );

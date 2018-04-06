@@ -1,8 +1,14 @@
 .Menu{
-	padding-top: 10px;
+	/*padding-top: 10px;*/
+	height: 100%;
+	background-color: #222;
+	position: fixed;
+    width: 15%;
+    top: 120px;
+    margin-left: -5px;
 }
 .Row{
 	/*display: inline-block;*/
-	width:25%;
+	width:100%;
 	text-align: center;
 }

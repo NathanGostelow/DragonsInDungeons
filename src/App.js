@@ -34,6 +34,7 @@ class App extends Component {
 
     return (
       <div className="App">
+          
           <header className="App-header">
             <Link to='/'>
               <img src={logo2} className="App-logo" alt="logo" />
