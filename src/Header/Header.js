@@ -28,13 +28,12 @@ class Header extends Component {
 
     return (
 
-    <header className="App-header">
-      <Link to='/'>
-        <img src={logo2} className="App-logo" alt="logo" />
-      </Link>
-      <Menu value={value} icon={icon} link={value} />
-
-    </header>
+      <header className="App-header">
+        <Link to='/'>
+          <img src={logo2} className="App-logo" alt="logo" />
+        </Link>
+        <Menu value={value} icon={icon} link={value} />
+      </header>
 
     );
   }
