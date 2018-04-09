@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+// import uniqBy from 'lodash/uniqBy.js'
 import './Equipment.css';
 import D20 from '../D20.png';
 // import Card from './Card/Card.js';
@@ -24,9 +26,10 @@ class Equipment extends Component {
       	(result) => {
     	  	this.setState({
 		     		isLoaded: true,
-   	   			equipment: result.results 
+            equipment: _.uniqBy(result.results, 'name')
    	   		})
-    	  	console.log(this.state);
+          this.SortItems();
+          // this.AddToGlossary();
       },
       (error) =>{
       	this.setState({
@@ -35,6 +38,14 @@ class Equipment extends Component {
       	})
       });
   }
+
+  SortItems(){
+    this.setState({equipment: this.state.equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))}) 
+  }
+
+  // AddToGlossary(){
+  //   const alph = 'abcdefghijklmnopqrstuvqxyz'.split('');
+  // }
 
   render() {
   	const {error, isLoaded, equipment} = this.state;
