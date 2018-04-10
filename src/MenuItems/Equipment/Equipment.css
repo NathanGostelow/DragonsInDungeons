@@ -4,6 +4,10 @@
 	margin-top: 10%;
 }
 
+.inner-container{
+	display: inline-block;
+}
+
 .h1{
 	font-size: 100px;
 }

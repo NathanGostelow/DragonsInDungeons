@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-// import uniqBy from 'lodash/uniqBy.js'
+// import includes from 'lodash/includes.js'
 import './Equipment.css';
 import D20 from '../D20.png';
 // import Card from './Card/Card.js';
@@ -16,20 +16,25 @@ class Equipment extends Component {
 	}
 
 	componentDidMount() {
+
     this.EquipmentList();
   }
 
   EquipmentList() {
+    const cachedData = localStorage.getItem('equipment');
+    if(cachedData){
+      console.log('serving from localstorage rather than wastering away the data')
+      this.setState({
+        isLoaded : true,
+        equipment : JSON.parse(cachedData)
+      })
+      return;
+    }
     fetch('http://www.dnd5eapi.co/api/equipment')
     	.then(res => res.json())
       .then(
       	(result) => {
-    	  	this.setState({
-		     		isLoaded: true,
-            equipment: _.uniqBy(result.results, 'name')
-   	   		})
-          this.SortItems();
-          // this.AddToGlossary();
+          this.SortItems(result.results);
       },
       (error) =>{
       	this.setState({
@@ -39,13 +44,44 @@ class Equipment extends Component {
       });
   }
 
-  SortItems(){
-    this.setState({equipment: this.state.equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))}) 
+  SortItems(data){
+    data = _.uniqBy(data, 'name');
+    data.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    this.AddToGlossary(data);
+
+  }
+  SetLocalStorage(){
+    localStorage.setItem('equipment', JSON.stringify(this.state.equipment));
   }
 
-  // AddToGlossary(){
-  //   const alph = 'abcdefghijklmnopqrstuvqxyz'.split('');
-  // }
+  AddToGlossary(data){
+    const alph = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    let gloss = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    let items = data;
+
+    for(let item of items){     
+      item.value =  _.includes(alph, item.name[0].toLowerCase()) ? item.name[0].toLowerCase() : 'n/a';
+      if(_.includes(gloss, item.name[0].toLowerCase())){
+        item.firstInGlossary = true;
+        gloss.shift();
+      }else{
+        item.firstInGlossary = false;
+      }
+          
+    }
+    this.setState({
+      isLoaded :true,
+      equipment : items
+    })
+    this.SetLocalStorage();
+  }
+
+  RenderGlossary(gloss, first){
+    if(!first){
+      return null
+    }
+      return <div> {gloss} </div>;
+  }
 
   render() {
   	const {error, isLoaded, equipment} = this.state;
@@ -57,10 +93,16 @@ class Equipment extends Component {
 	    return (
 	      <div className="container">
 	        <h1> Hello Equipment </h1>
-	        	{equipment.map(item => (
-	        		<div className='equipment-card' key={item.name}>
-	        			<span className='equipment-title'>{item.name}</span>
+
+	        	{equipment.map((item) => (
+              <div className='inner-container' key={item.name}>
+              <div>
+                  { this.RenderGlossary(item.value, item.firstInGlossary) }
+                </div>
+	        		<div className='equipment-card'>
+	        			<span className='equipment-title'>{item.value} {item.name}</span>
 	        		</div>
+              </div>
 	        	))}       
 	      </div>
 	    );
