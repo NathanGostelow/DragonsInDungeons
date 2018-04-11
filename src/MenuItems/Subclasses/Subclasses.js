@@ -55,7 +55,7 @@ class SubClasses extends Component {
 	      <div className="container">
 	        <h1> SubClasses </h1>
 	        	{subclasses.map(item => (
-	        		<div className='equipment-card' key={item.name}>
+	        		<div className='equipment-card-temp' key={item.name}>
 	        			<span className='equipment-title'>{item.name}</span>
 	        		</div>
 	        	))}       
