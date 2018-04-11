@@ -18,6 +18,8 @@
 }
 
 .loading-image {
+    margin-left: 25%;
+    margin-right: 5%;
     margin-top: 15%;
     -webkit-animation: spin 8s linear infinite;
 }
@@ -36,6 +38,20 @@
 
 .equipment-card:hover {
     background-color: #b4050e;
+}
+.equipment-card-temp{
+	background-color: #E50712;
+	color: #222;
+    width: 200px;
+    margin: 10px 10px;
+    height: 100px;
+    vertical-align: middle;
+    display: inline-flex;
+    border-radius: 5px;
+	box-shadow: 1px 2px 10px #555;
+}
+.equipment-card-temp:hover{
+	background-color: #b4050e;
 }
 
 .equipment-title {

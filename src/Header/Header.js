@@ -8,12 +8,12 @@ class Header extends Component {
   render() {
 
     const value = [
-    'Spells', 
-    'Classes', 
-    'Monsters', 
-    'SubClasses',
-    'Races', 
-    'Equipment'
+    'spells', 
+    'classes', 
+    'monsters', 
+    'subClasses',
+    'races', 
+    'equipment'
     ];
 
     const icon = [

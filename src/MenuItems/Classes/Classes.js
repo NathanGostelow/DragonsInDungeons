@@ -46,7 +46,7 @@ class Classes extends Component {
 	      <div className="container">
 	        <h1> Classes </h1>
 	        	{classes.map(item => (
-	        		<div className='equipment-card' key={item.name}>
+	        		<div className='equipment-card-temp' key={item.name}>
 	        			<span className='equipment-title'>{item.name}</span>
 	        		</div>
 	        	))}       

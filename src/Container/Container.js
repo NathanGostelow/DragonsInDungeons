@@ -16,12 +16,12 @@ class Container extends Component {
       <main>
         <Switch>
           <Route exact path='/' />
-          <Route path='/Monsters' component={Monsters} />
-          <Route path='/Subclasses' component={Subclasses} />
-          <Route path='/Classes' component={Classes} />
-          <Route path='/Spells' component={Spells} />
-          <Route path='/Races' component={Races} />
-          <Route path='/Equipment' component={Equipment} />
+          <Route path='/monsters' component={Monsters} />
+          <Route path='/subclasses' component={Subclasses} />
+          <Route path='/classes' component={Classes} />
+          <Route path='/spells' component={Spells} />
+          <Route path='/races' component={Races} />
+          <Route path='/equipment' component={Equipment} />
         </Switch>
       </main>
     );
