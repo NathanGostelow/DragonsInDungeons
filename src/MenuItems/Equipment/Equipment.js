@@ -77,10 +77,11 @@ class Equipment extends Component {
   }
 
   RenderGlossary(gloss, first){
+    let glossUpper = gloss.toUpperCase();
     if(!first){
       return null
     }
-      return <div> {gloss} </div>;
+      return <div className='dictionary-title'> {glossUpper} </div>;
   }
 
   render() {
@@ -92,15 +93,13 @@ class Equipment extends Component {
   	} else {
 	    return (
 	      <div className="container">
-	        <h1> Hello Equipment </h1>
-
 	        	{equipment.map((item) => (
               <div className='inner-container' key={item.name}>
               <div>
                   { this.RenderGlossary(item.value, item.firstInGlossary) }
                 </div>
 	        		<div className='equipment-card'>
-	        			<span className='equipment-title'>{item.value} {item.name}</span>
+	        			<span className='equipment-title'>{item.name}</span>
 	        		</div>
               </div>
 	        	))}       
