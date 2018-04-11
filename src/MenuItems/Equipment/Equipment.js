@@ -8,20 +8,38 @@ import D20 from '../D20.png';
 class Equipment extends Component {
 	constructor(props){
 		super(props);
+    console.log(props);
 		this.state = {
+      id: this.props.cont,
 			error: null,
 			equipment : [],
 			isLoaded: false
 		};
 	}
 
-	componentDidMount() {
-
-    this.EquipmentList();
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.cont !== prevState){
+      return {
+          id: nextProps.cont,
+          error: null,
+          equipment : [],
+          isLoaded: false
+      }
+    }
+    return null
   }
 
-  EquipmentList() {
-    const cachedData = localStorage.getItem('equipment');
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.id !== this.state.id) {
+      this.EquipmentList(this.state.id);
+    }
+  }
+	componentDidMount() {
+    this.EquipmentList(this.props.cont);
+  }
+
+  EquipmentList(prop) {
+    const cachedData = localStorage.getItem(prop);
     if(cachedData){
       console.log('serving from localstorage rather than wastering away the data')
       this.setState({
@@ -30,7 +48,7 @@ class Equipment extends Component {
       })
       return;
     }
-    fetch('http://www.dnd5eapi.co/api/equipment')
+    fetch('http://www.dnd5eapi.co/api/' + prop)
     	.then(res => res.json())
       .then(
       	(result) => {
@@ -50,11 +68,12 @@ class Equipment extends Component {
     this.AddToGlossary(data);
 
   }
-  SetLocalStorage(){
-    localStorage.setItem('equipment', JSON.stringify(this.state.equipment));
+  SetLocalStorage(type){
+    localStorage.setItem(type, JSON.stringify(this.state.equipment));
   }
 
   AddToGlossary(data){
+    const storageName = this.props.cont;
     const alph = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let gloss = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let items = data;
@@ -73,7 +92,7 @@ class Equipment extends Component {
       isLoaded :true,
       equipment : items
     })
-    this.SetLocalStorage();
+    this.SetLocalStorage(storageName);
   }
 
   RenderGlossary(gloss, first){
