@@ -1,0 +1,34 @@
+.Menu{
+	padding-top: 10px;
+}
+.Row{
+	display: inline-block;
+	width:85%;
+	text-align: center;
+}
+
+.classes-card{
+	color: #222;
+    margin: 10px 10px;
+    display: inline-block;
+	border: 1px solid #BBB;
+}
+.classes-card:hover{
+	/*background-color: #b4050e;*/
+}
+
+.classes-img{
+	display: block;
+}
+
+.classes-title {
+	display: block;
+    font-size: 36px;
+}
+
+.classes-button{
+	background-color: #E50712;
+    display: block;
+    font-size: 32px;
+    padding: 5px;
+}
