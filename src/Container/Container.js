@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {Switch, BrowserRouter, Route, Link} from 'react-router-dom';
-import Monsters from '../MenuItems/Monsters/Monsters.js';
 import Subclasses from '../MenuItems/Subclasses/Subclasses.js';
 import Classes from '../MenuItems/Classes/Classes.js';
-import Spells from '../MenuItems/Spells/Spells.js';
 import Races from '../MenuItems/Races/Races.js';
 import Equipment from '../MenuItems/Equipment/Equipment.js';
 import logo2 from '../logo.png';
