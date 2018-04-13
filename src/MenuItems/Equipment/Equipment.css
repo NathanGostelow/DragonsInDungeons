@@ -1,0 +1,53 @@
+.container {
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 120px;
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.inner-container {
+    display: inline-block;
+    margin: 10px;
+    width: 30%;
+    text-align: left;
+}
+
+.h1 {
+    font-size: 100px;
+}
+
+.loading-image {
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 15%;
+    -webkit-animation: spin 8s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.equipment-card {
+    /* background-color: #E50712; */
+    color: #222;
+    margin: 10px;
+}
+
+.equipment-card:hover {
+    background-color: #b4050e;
+}
+
+.equipment-title {
+    margin-top: 20%;
+    font-size: 22px;
+    width: inherit;
+}
+
+.dictionary-title {
+    border-bottom: 2px solid #222;
+    font-size: 36px;
+    font-family: Garamond;
+}
