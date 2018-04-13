@@ -16,6 +16,7 @@
   width: 100%;
   top: 0;
   text-align: left;
+  z-index: 100;
 }
 
 .App-title {

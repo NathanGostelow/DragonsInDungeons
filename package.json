@@ -9,7 +9,8 @@
     "react-fontawesome": "^1.6.1",
     "react-router-dom": "^4.3.0-rc.2",
     "react-router-native": "^4.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
