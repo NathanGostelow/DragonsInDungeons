@@ -9,26 +9,51 @@
 
 .classes-card{
 	color: #222;
+	width: 350px;
+	height: 350px;
     margin: 10px 10px;
     display: inline-block;
-	border: 1px solid #BBB;
+	/*border: 1px solid #BBB;*/
 }
 .classes-card:hover{
 	/*background-color: #b4050e;*/
 }
 
 .classes-img{
-	display: block;
+	/*display: block;*/
+	position: absolute;
+	transition: all .2s ease-in-out;
+}
+
+.classes-img:hover{
+	transform: scale(1.15);
 }
 
 .classes-title {
-	display: block;
-    font-size: 36px;
+	/*display: block;*/
+    font-size: 28px;
 }
 
 .classes-button{
-	background-color: #E50712;
+	background-color: #222;
+	color: #E50712;
     display: block;
     font-size: 32px;
     padding: 5px;
+}
+.classes-button:hover{
+	background-color: #E50712 ;
+	color: #222;
+
+}
+
+.overlay{
+	transition: .5s ease;
+  opacity: 0.3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
