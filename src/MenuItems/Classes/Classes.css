@@ -9,9 +9,7 @@
 
 .classes-card{
 	color: #222;
-	width: 350px;
-	height: 350px;
-    margin: 10px 10px;
+    margin: 10px 50px;
     display: inline-block;
 	/*border: 1px solid #BBB;*/
 }
@@ -20,9 +18,9 @@
 }
 
 .classes-img{
-	/*display: block;*/
-	position: absolute;
-	transition: all .2s ease-in-out;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 .classes-img:hover{
@@ -30,8 +28,7 @@
 }
 
 .classes-title {
-	/*display: block;*/
-    font-size: 28px;
+    font-size: 1.17em;
 }
 
 .classes-button{
