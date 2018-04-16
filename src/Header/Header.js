@@ -11,7 +11,7 @@ class Header extends Component {
     'spells', 
     'classes', 
     'monsters', 
-    'subClasses',
+    // 'subClasses',
     'races', 
     'equipment'
     ];
@@ -20,7 +20,7 @@ class Header extends Component {
       'fa-bolt',
       'fa-medkit',
       'fa-paw',
-      'fa-balance-scale',
+      // 'fa-balance-scale',
       'fa-group',
       'fa-magic',
     ]
