@@ -18,7 +18,7 @@ class Equipment extends Component {
 	}
 
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.cont !== prevState){
+    if(nextProps.cont !== prevState.id){
       return {
           id: nextProps.cont,
           error: null,
