@@ -14,7 +14,8 @@ class RaceClass extends Component {
 	}
 
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.cont !== prevState){
+    console.log(nextProps, prevState);
+    if(nextProps.cont !== prevState.id){
       return {
           id: nextProps.cont,
           error: null,
@@ -22,7 +23,7 @@ class RaceClass extends Component {
           isLoaded: false
       }
     }
-    return null
+    return
   }
 
   componentDidUpdate(prevProps, prevState){
