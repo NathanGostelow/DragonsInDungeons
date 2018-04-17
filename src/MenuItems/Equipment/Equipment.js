@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import {Link} from 'react-router-dom';
+import {Router, Link} from 'react-router-dom';
 // import includes from 'lodash/includes.js'
 import './Equipment.css';
 import D20 from '../D20.png';

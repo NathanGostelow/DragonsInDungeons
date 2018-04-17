@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, BrowserRouter, Route, Link} from 'react-router-dom';
+// import {BrowserRouter as Switch, BrowserRouter, Route, Link} from 'react-router-dom';
 import Container from './Container/Container.js';
 import Header from './Header/Header.js';
 import "typeface-roboto";
