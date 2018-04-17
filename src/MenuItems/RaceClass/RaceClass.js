@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './Classes.css';
+import './RaceClass.css';
 import D20 from '../D20.png';
 
 class RaceClass extends Component {
@@ -22,8 +22,10 @@ class RaceClass extends Component {
           classRace : [],
           isLoaded: false
       }
+    }else{
+    return null;
+
     }
-    return
   }
 
   componentDidUpdate(prevProps, prevState){

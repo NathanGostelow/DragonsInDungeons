@@ -10,7 +10,7 @@ class Monster extends Component {
   }
 
   render() {
-    return(<img className="loading-image" src={D20} />)
+    return(<img className="loading-image" src={D20} alt="loading"/>)
   }
 }
 
