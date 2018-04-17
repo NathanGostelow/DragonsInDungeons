@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import {Link} from 'react-router-dom';
 // import includes from 'lodash/includes.js'
 import './Equipment.css';
 import D20 from '../D20.png';
@@ -8,7 +9,7 @@ import D20 from '../D20.png';
 class Equipment extends Component {
 	constructor(props){
 		super(props);
-    console.log(props);
+    console.log(props.match);
 		this.state = {
       id: this.props.cont,
 			error: null,
@@ -105,6 +106,7 @@ class Equipment extends Component {
 
   render() {
   	const {error, isLoaded, equipment} = this.state;
+    const match = this.props.match;
   	if(error){
   		return <div> Error: {error.message}</div>
   	} else if(!isLoaded){
@@ -118,7 +120,9 @@ class Equipment extends Component {
                   { this.RenderGlossary(item.value, item.firstInGlossary) }
                 </div>
 	        		<div className='equipment-card'>
-	        			<span className='equipment-title'>{item.name}</span>
+                <Link to={`${match.url}/${item.name}`}>
+	        			    <span className='equipment-title'>{item.name}</span>
+                </Link>
 	        		</div>
               </div>
 	        	))}       
