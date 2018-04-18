@@ -53,6 +53,7 @@ class Equipment extends Component {
     	.then(res => res.json())
       .then(
       	(result) => {
+          // console.log('results', result.results);
           this.SortItems(result.results);
       },
       (error) =>{
@@ -75,11 +76,13 @@ class Equipment extends Component {
 
   AddToGlossary(data){
     const storageName = this.props.cont;
+    const urlToReplace = 'http://www.dnd5eapi.co/api/' + this.props.cont + '/';
     const alph = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let gloss = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let items = data;
 
-    for(let item of items){     
+    for(let item of items){
+      item.url = item.url.replace(urlToReplace,'');
       item.value =  _.includes(alph, item.name[0].toLowerCase()) ? item.name[0].toLowerCase() : 'n/a';
       if(_.includes(gloss, item.name[0].toLowerCase())){
         item.firstInGlossary = true;
@@ -120,7 +123,7 @@ class Equipment extends Component {
                   { this.RenderGlossary(item.value, item.firstInGlossary) }
                 </div>
 	        		<div className='equipment-card'>
-                <Link to={`${match.url}/${item.name}`}>
+                <Link to={`${match.url}/${item.url}`}>
 	        			    <span className='equipment-title'>{item.name}</span>
                 </Link>
 	        		</div>
