@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Link} from 'react-router-dom';
 import Menu from '../Menu/Menu.js';
 import logo2 from '../logo.png';
 import '../App.css';
@@ -11,7 +11,7 @@ class Header extends Component {
     'spells', 
     'classes', 
     'monsters', 
-    'subClasses',
+    // 'subClasses',
     'races', 
     'equipment'
     ];
@@ -20,7 +20,7 @@ class Header extends Component {
       'fa-bolt',
       'fa-medkit',
       'fa-paw',
-      'fa-balance-scale',
+      // 'fa-balance-scale',
       'fa-group',
       'fa-magic',
     ]

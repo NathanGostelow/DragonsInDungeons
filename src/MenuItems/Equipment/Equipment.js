@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import {Router, Link} from 'react-router-dom';
 // import includes from 'lodash/includes.js'
 import './Equipment.css';
 import D20 from '../D20.png';
@@ -8,7 +9,7 @@ import D20 from '../D20.png';
 class Equipment extends Component {
 	constructor(props){
 		super(props);
-    console.log(props);
+    console.log(props.match);
 		this.state = {
       id: this.props.cont,
 			error: null,
@@ -18,7 +19,7 @@ class Equipment extends Component {
 	}
 
   static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.cont !== prevState){
+    if(nextProps.cont !== prevState.id){
       return {
           id: nextProps.cont,
           error: null,
@@ -52,6 +53,7 @@ class Equipment extends Component {
     	.then(res => res.json())
       .then(
       	(result) => {
+          // console.log('results', result.results);
           this.SortItems(result.results);
       },
       (error) =>{
@@ -74,11 +76,13 @@ class Equipment extends Component {
 
   AddToGlossary(data){
     const storageName = this.props.cont;
+    const urlToReplace = 'http://www.dnd5eapi.co/api/' + this.props.cont + '/';
     const alph = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let gloss = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let items = data;
 
-    for(let item of items){     
+    for(let item of items){
+      item.url = item.url.replace(urlToReplace,'');
       item.value =  _.includes(alph, item.name[0].toLowerCase()) ? item.name[0].toLowerCase() : 'n/a';
       if(_.includes(gloss, item.name[0].toLowerCase())){
         item.firstInGlossary = true;
@@ -105,6 +109,7 @@ class Equipment extends Component {
 
   render() {
   	const {error, isLoaded, equipment} = this.state;
+    const match = this.props.match;
   	if(error){
   		return <div> Error: {error.message}</div>
   	} else if(!isLoaded){
@@ -118,7 +123,9 @@ class Equipment extends Component {
                   { this.RenderGlossary(item.value, item.firstInGlossary) }
                 </div>
 	        		<div className='equipment-card'>
-	        			<span className='equipment-title'>{item.name}</span>
+                <Link to={`${match.url}/${item.url}`}>
+	        			    <span className='equipment-title'>{item.name}</span>
+                </Link>
 	        		</div>
               </div>
 	        	))}       

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Classes.css';
+// import './Classes.css';
 import D20 from '../D20.png';
 
 class Classes extends Component {
@@ -47,11 +47,12 @@ class Classes extends Component {
 	      <div className="container">
 	        <h1> Classes </h1>
 	        	{classes.map(item => (
-	        		<div className='classes-card' key={item.name}>
-                <span className='classes-title'>{item.name}</span>
-                <img className='classes-img' src={process.env.PUBLIC_URL + '/img/classes/' + item.name +'.png'} />
-                <span className='classes-button'> View Details </span>
-	        		</div>
+  	        		<div className='classes-card' key={item.name}>
+                  <span className='classes-title'>{item.name}</span>
+                  <img className='classes-img' src={process.env.PUBLIC_URL + '/img/classes/' + item.name +'.png'} alt={item.name}/>
+                  {/*<div className='overlay'> testicle</div>*/}
+                  {/*<span className='classes-button'> View Details </span>*/}
+	           		</div>
 	        	))}       
 	      </div>
 	    );
