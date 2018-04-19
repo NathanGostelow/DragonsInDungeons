@@ -14,22 +14,20 @@ class Monster extends Component {
 	}
 
   componentDidMount(){
-  	console.log(this.props);
     this.EquipmentList();
   }
 
   EquipmentList() {
-  	const url = 'http://www.dnd5eapi.co/api/equipment/';
-    fetch( url + this.props.match.params.id)
+  	// console.log(this.props);
+  	const url = 'http://www.dnd5eapi.co/api';
+    fetch( url + this.props.match.url)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log('results', result);
           this.setState({
           	item : result,
           	isLoaded: true
           })
-          console.log(this.state.item.name);
           // this.SortItems(result.results);
       },
       (error) =>{
@@ -42,17 +40,34 @@ class Monster extends Component {
 
   render() {
   	const {error, item, isLoaded} = this.state;
-  	console.log(this.state);
+  	console.log(this.props.match.url.indexOf('equipment') >= 0);
   	if(error){
   		return <div> Error: {error.message}</div>
   	} else if(!isLoaded){
   		return <img src={D20} className="loading-image" alt="Loading" />
-  	}else{
+  	}else if(this.props.match.url.indexOf('equipment') >= 0){
   		return(
 	  		<div className="container">
-	    		<h1 className="monster-name"> {item.name} </h1>
-	    		<h3 className="monster-desc"> {item.desc[0]} </h3> 
+	  			<div className="column-2">
+	    			<h1 className="monster-name"> {item.name} </h1>
+	    		</div>
+	    		<div className="column-2">
+	    			<h1 className="monster-name"> {item.name} </h1>
+	    		</div>
+	    		{/*<h3 className="monster-desc"> {item.desc[0]} </h3> */}
 	    	</div>
+  		)
+  	}else if(this.props.match.url.indexOf('monsters') >= 0){
+  		return (
+  			<div className="container">
+  				<h1 className="monster-name"> coming soon </h1>
+  			</div>
+  		)
+  	}else if(this.props.match.url.indexOf('spells') >= 0){
+  		return (
+  			<div className="container">
+  				<h1 className="monster-name"> coming soon </h1>
+  			</div>
   		)
   	}
   }
