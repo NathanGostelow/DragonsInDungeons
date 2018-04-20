@@ -1,8 +1,10 @@
 .monster-name{
 	display: block;
-	margin: 5px;
 }
 .monster-title{
 	font-size: 2em;
 	font-weight: bold;
+}
+.monster-title-container{
+	margin: 0px 10px;
 }
