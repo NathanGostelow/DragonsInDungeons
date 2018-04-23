@@ -48,10 +48,14 @@ class Monster extends Component {
   	}else if(this.props.match.url.indexOf('equipment') >= 0){
   		return(
 	  		<div className="container">
+
+          <div className="monster-title-container">
+            <img className="icon" title={item.equipment_category} src={process.env.PUBLIC_URL + '/img/Icons/' + item.equipment_category + '.png'} alt={item.equipment_category}/>
+            <span className="monster-title"> {item.name} - {item.cost.quantity}{item.cost.unit}</span>
+          </div>
 	  			
 	  			<div className="column-2">
-
-	    			<span className="monster-name">Category: {item.equipment_category} </span>
+	    			{/*<span className="monster-name">Category: {item.equipment_category} </span>*/}
 	    			{item.damage ? <span className="monster-name"> damage: {item.damage.dice_count}d{item.damage.dice_value}</span> : null}
             {item.armor_class ? <span className="monster-name"> AC: {item.armor_class.base}+{item.armor_class.max_bonus}</span> : null}
             {item.armor_class ? <span className="monster-name"> dex bonus: {item.armor_class.dex_bonus}</span> : null}
@@ -59,7 +63,6 @@ class Monster extends Component {
 	    		</div>
 	    		<div className="column-2">
 	    			<div className="monster-title-container">
-		    			<span className="monster-title"> {item.name} - {item.cost.quantity}{item.cost.unit}</span>
 		  			</div>
 	    			{desc.map((des, key) => (
 		    			<span key={key} className="monster-name"> {des} </span>

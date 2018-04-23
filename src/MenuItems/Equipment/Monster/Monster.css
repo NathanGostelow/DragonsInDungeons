@@ -1,10 +1,28 @@
+.icon{
+	width: 100px;
+}
+
 .monster-name{
 	display: block;
 }
 .monster-title{
+	vertical-align: 75%;
+	margin-left: 10px;
 	font-size: 2em;
 	font-weight: bold;
 }
+.monster-title:after{
+	content:"";
+    display: -webkit-box;
+    height: 0.2em;
+    vertical-align: bottom;
+    width: 100%;
+    margin-top: 5px;
+    margin-right: -100%;
+    margin-left: 10px;
+    border-top: 1px solid black;
+}
 .monster-title-container{
-	margin: 0px 10px;
+	margin: 25px 50px 10px 50px;
+	text-align: left;
 }
