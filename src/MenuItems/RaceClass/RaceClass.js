@@ -87,7 +87,8 @@ SetLocalStorage(type){
   	} else {
 	    return (
 	      <div className="container">
-	        <h1> Classes </h1>
+          <div className="inner-container-full">
+	          <h1> Classes </h1>
 	        	{classRace.map(item => (
   	        		<div className='classes-card' key={item.name}>
                   <span className='classes-title'>{item.name}</span>
@@ -95,7 +96,8 @@ SetLocalStorage(type){
                   {/*<div className='overlay'> testicle</div>*/}
                   {/*<span className='classes-button'> View Details </span>*/}
 	           		</div>
-	        	))}       
+	        	))}      
+          </div> 
 	      </div>
 	    );
 	  }

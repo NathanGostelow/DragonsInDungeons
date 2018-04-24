@@ -2,6 +2,18 @@
 	width: 100px;
 }
 
+.column-2{
+	width: 45%;
+    /*margin: 10px;*/
+    /*display: inline-block;*/
+    text-align: left;
+    float: 	left;
+}
+
+.inner-container-full{
+	margin: 120px 15px 15px 15px;
+}
+
 .monster-name{
 	display: block;
 }
@@ -23,6 +35,8 @@
     border-top: 1px solid black;
 }
 .monster-title-container{
-	margin: 25px 50px 10px 50px;
+	/*margin: 25px 50px 10px 50px;*/
 	text-align: left;
+	max-height: 125px;
 }
+

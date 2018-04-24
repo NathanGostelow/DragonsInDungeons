@@ -117,6 +117,7 @@ class Equipment extends Component {
   	} else {
 	    return (
 	      <div className="container">
+          <div className="inner-container-full">
 	        	{equipment.map((item) => (
               <div className='inner-container' key={item.name}>
               <div>
@@ -128,7 +129,8 @@ class Equipment extends Component {
                 </Link>
 	        		</div>
               </div>
-	        	))}       
+	        	))}   
+          </div>    
 	      </div>
 	    );
 	  }
