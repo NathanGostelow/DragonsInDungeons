@@ -18,6 +18,17 @@ class Monster extends Component {
     this.ItemRequest();
   }
 
+  CheckModifier(name, ability){
+    console.log(ability);
+    let modifier = null;
+    for(let i = 0; i <= ability; i++){
+      console.log(i);
+      //run an if statement to check against number and add modifier 
+
+    }
+    return (<td><span className="bold">{name}</span><span className="light">{ability}</span></td>);
+  }
+
   ItemRequest() {
   	const url = 'http://www.dnd5eapi.co/api';
     fetch( url + this.props.match.url)
@@ -79,9 +90,24 @@ class Monster extends Component {
     				<h1 className="m-name"> {item.name}</h1>
             <p className="m-description"> {item.size}, {item.type} </p>
             <div className="m-break"></div>
-            <ul>   
-              <li>Armor Class: {item.armor_class}</li>
+            <ul className="monster-list">   
+              <li><span className="bold">Armor Class:</span> <span className="light">{item.armor_class}</span></li>
+              <li><span className="bold">Hit Points:</span> <span className="light">{item.hit_points}</span></li>
+              <li><span className="bold">Speed:</span> <span className="light">{item.speed}</span></li>
             </ul>
+            <div className="m-break"></div>
+            <table>
+              <tbody>
+                <tr>
+                  {this.CheckModifier('STR', item.strength)}
+                  {this.CheckModifier('DEX', item.dexterity)}
+                  {this.CheckModifier('CON', item.constitution)}
+                  {this.CheckModifier('INT', item.intelligence)}
+                  {this.CheckModifier('WIS', item.wisdom)}
+                  {this.CheckModifier('CHA', item.charisma)}
+                </tr>
+              </tbody>
+            </table>
           </div>
   			</div>
   		)

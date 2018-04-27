@@ -58,4 +58,32 @@
 	text-align: left;
 	max-height: 125px;
 }
+ul{
+	margin: 5px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
 
+.bold{
+	font-weight: 600;
+}
+.light{
+	font-weight: 300;
+}
+.stats-list > li{
+	width:12%;
+	text-align: center;
+	display: inline-block;
+}
+.stats-list{
+	width: 100%;
+}
+table{
+	width: 100%;
+}
+td{
+	/*display: block;*/
+	width:15%;
+}
