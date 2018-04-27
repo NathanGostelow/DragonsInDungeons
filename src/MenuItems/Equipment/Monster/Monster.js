@@ -75,8 +75,13 @@ class Monster extends Component {
   	}else if(this.props.match.url.indexOf('monsters') >= 0){
   		return (
   			<div className="container">
-          <div className="inner-container-full">
-    				<h1 className="monster-name"> coming soon </h1>
+          <div className="m-inner-container-full">
+    				<h1 className="m-name"> {item.name}</h1>
+            <p className="m-description"> {item.size}, {item.type} </p>
+            <div className="m-break"></div>
+            <ul>   
+              <li>Armor Class: {item.armor_class}</li>
+            </ul>
           </div>
   			</div>
   		)

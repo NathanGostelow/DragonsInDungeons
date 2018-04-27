@@ -13,6 +13,25 @@
 .inner-container-full{
 	margin: 120px 15px 15px 15px;
 }
+.m-inner-container-full{
+	margin: 120px 15px 15px 15px;
+	text-align: left;
+	padding: 0px 25px;
+	text-transform: capitalize;
+}
+.m-name{
+	margin: 5px;
+}
+.m-description{
+	margin: 5px;
+}
+.m-break{
+	border-top: solid 3px transparent;
+    border-left: solid 315px #a52a2a;
+    border-bottom: solid 3px #a52a2a;
+    border-right: solid 315px transparent;
+    margin: 5px 0px 5px 0px;;
+}
 
 .monster-name{
 	display: block;
