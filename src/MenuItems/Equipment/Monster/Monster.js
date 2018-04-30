@@ -48,9 +48,10 @@ class Monster extends Component {
           this.setState({
           	item : result,
           	isLoaded: true,
-          	desc: result.desc ? result.desc : ['This Item has no description :(']
+          	desc: result.desc ? result.desc : ['This Item has no description :('],
+            actions: result.actions ? result.actions : ['This monster has no actions :('],
           })
-          console.log('componentDidMount request', this.state.item);
+          console.log('componentDidMount request', this.state);
       },
       (error) =>{
         this.setState({
@@ -61,7 +62,7 @@ class Monster extends Component {
   }
 
   render() {
-  	const {error, item, isLoaded, desc} = this.state; 
+  	const {error, item, isLoaded, desc, actions} = this.state; 
   	if(error){
   		return <div> Error: {error.message}</div>
   	} else if(!isLoaded){
@@ -125,6 +126,13 @@ class Monster extends Component {
               <li><span className="bold">Languages</span> <span className="light">{item.languages}</span></li>
               <li><span className="bold">Challenge</span> <span className="light">{item.challenge_rating}</span></li>
             </ul>
+            <div className="m-break"></div>
+             <ul className="monster-list">
+                {actions.map((action, key) => (
+                <li><span className="bold">{action.name}</span> <span className="light">{action.desc}</span></li>
+                // <span key={key} className="monster-name"> {des} </span>
+              ))}
+             </ul>
           </div>
   			</div>
   		)
