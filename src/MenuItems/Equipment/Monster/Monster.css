@@ -82,6 +82,7 @@ li{
 }
 table{
 	width: 100%;
+	padding: 0px 10px;
 }
 td{
 	/*display: block;*/

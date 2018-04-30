@@ -19,14 +19,24 @@ class Monster extends Component {
   }
 
   CheckModifier(name, ability){
-    console.log(ability);
     let modifier = null;
-    for(let i = 0; i <= ability; i++){
-      console.log(i);
-      //run an if statement to check against number and add modifier 
+    modifier = Math.floor((ability - 10) / 2);
+    return (<td><span className="bold">{name}</span><span className="light">{ability}({modifier})</span></td>);
+  }
 
+  GetSavingThrows(obj){
+    let savingThrows = '';
+
+    savingThrows = obj.dexterity_save ? 'Dex ' + obj.dexterity_save + ', ' : '';
+    savingThrows += obj.charisma_save ? 'Cha ' + obj.charisma_save + ', ' : '';
+    savingThrows += obj.constitution_save ? 'Con ' + obj.constitution_save + ', ' : '';
+    savingThrows += obj.wisdom_save ? 'Wis ' + obj.wisdom_save: '';
+    savingThrows = (savingThrows.length < 1) ? null : savingThrows;
+
+    if(savingThrows){
+      return <li><span className="bold">Saving Throws</span> <span className="light">{savingThrows}</span></li>
     }
-    return (<td><span className="bold">{name}</span><span className="light">{ability}</span></td>);
+    return savingThrows;    
   }
 
   ItemRequest() {
@@ -108,6 +118,13 @@ class Monster extends Component {
                 </tr>
               </tbody>
             </table>
+            <div className="m-break"></div>
+            <ul className="monster-list">   
+              {this.GetSavingThrows(item)}
+              <li><span className="bold">Senses </span> <span className="light">{item.senses}</span></li>
+              <li><span className="bold">Languages</span> <span className="light">{item.languages}</span></li>
+              <li><span className="bold">Challenge</span> <span className="light">{item.challenge_rating}</span></li>
+            </ul>
           </div>
   			</div>
   		)
