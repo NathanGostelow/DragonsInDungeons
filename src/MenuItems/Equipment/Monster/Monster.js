@@ -122,14 +122,14 @@ class Monster extends Component {
             <div className="m-break"></div>
             <ul className="monster-list">   
               {this.GetSavingThrows(item)}
-              <li><span className="bold">Senses </span> <span className="light">{item.senses}</span></li>
-              <li><span className="bold">Languages</span> <span className="light">{item.languages}</span></li>
-              <li><span className="bold">Challenge</span> <span className="light">{item.challenge_rating}</span></li>
+              {item.senses !== "" ? <li><span className="bold">Senses </span> <span className="light">{item.senses}</span></li> : null}
+              {item.languages !== "" ? <li><span className="bold">Languages</span> <span className="light">{item.languages}</span></li> : null}
+              {item.challenge_rating ? <li><span className="bold">Challenge</span> <span className="light">{item.challenge_rating}</span></li> : null}
             </ul>
             <div className="m-break"></div>
              <ul className="monster-list">
                 {actions.map((action, key) => (
-                <li><span className="bold">{action.name}</span> <span className="light">{action.desc}</span></li>
+                  action.damage_dice ? <li key={key}><span className="bold">{action.name}</span> <span className="light">{action.damage_dice}{action.attack_bonus !== 0 ? ' + ' +  action.attack_bonus : null}{action.damage_bonus && action.damage_bonus !== 0 ? ' + ' + action.damage_bonus : null}</span></li> : null
                 // <span key={key} className="monster-name"> {des} </span>
               ))}
              </ul>
